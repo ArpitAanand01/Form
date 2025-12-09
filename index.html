@@ -9,7 +9,7 @@
 document.getElementById("myForm").addEventListener("submit", function(e){
   e.preventDefault();
 
-  fetch("YOUR_WEB_APP_URL_HERE", {
+  fetch("https://script.google.com/macros/s/AKfycbwjFiVsQDvpKQbsW26xRfIJ5KT3McVaOv1pev-JBS0hxSz6Yy8jgzZG8n_vQE1y_XS5/exec", {
     method: "POST",
     body: JSON.stringify({
       name: document.getElementById("name").value,
