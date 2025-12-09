@@ -6,21 +6,20 @@
 </form>
 
 <script>
-document.getElementById("myForm").addEventListener("submit", function(e){
-  e.preventDefault();
-
-  fetch("https://script.google.com/macros/s/AKfycbwjFiVsQDvpKQbsW26xRfIJ5KT3McVaOv1pev-JBS0hxSz6Yy8jgzZG8n_vQE1y_XS5/exec", {
+function sendData() {
+  fetch("Yhttps://script.google.com/macros/s/AKfycbwjFiVsQDvpKQbsW26xRfIJ5KT3McVaOv1pev-JBS0hxSz6Yy8jgzZG8n_vQE1y_XS5/exec", {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify({
       name: document.getElementById("name").value,
       email: document.getElementById("email").value,
       message: document.getElementById("message").value
-    }),
-    headers: {
-      "Content-Type": "application/json"
-    }
+    })
   })
-  .then(res => alert("Saved in Google Sheet 🎉"))
-  .catch(err => alert("Error 😢"));
-});
+  .then(res => res.text())
+  .then(text => alert(text))
+  .catch(err => alert(err));
+}
 </script>
