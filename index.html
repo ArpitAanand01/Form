@@ -1,12 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Simple Form 😊</h2>
+
 <form id="myForm">
-  <input type="text" id="name" placeholder="Name"><br>
-  <input type="email" id="email" placeholder="Email"><br>
-  <textarea id="message" placeholder="Message"></textarea><br>
-  <button type="submit">Send</button>
+  <input type="text" id="name" placeholder="Name"><br><br>
+  <input type="email" id="email" placeholder="Email"><br><br>
+  <textarea id="message" placeholder="Message"></textarea><br><br>
+  <button type="submit">Send Data 🚀</button>
 </form>
 
 <script>
-function sendData() {
+document.getElementById("myForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
   fetch("https://script.google.com/macros/s/AKfycbzcEfy7CteBTs_0Wi4NMbhsVoB2pOEUCtEddAuuhkjnGKyXstfPhHd1D61mtoEJrho2/exec", {
     method: "POST",
     headers: {
@@ -19,7 +27,10 @@ function sendData() {
     })
   })
   .then(res => res.text())
-  .then(text => alert(text))
-  .catch(err => alert(err));
-}
+  .then(text => alert("Saved 👍"))
+  .catch(err => alert("Error 😢 " + err));
+});
 </script>
+
+</body>
+</html>
